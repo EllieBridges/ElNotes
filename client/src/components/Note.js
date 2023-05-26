@@ -1,9 +1,10 @@
-export default function Note() {
+
+export default function Note({ note }) {
     return (
         <div>
             <li>
                 <a>
-                    <h2 className='listNoteTitle grow'>Note 1</h2>
+                    <h2 className='listNoteTitle grow'>{note.title}</h2>
                 </a>
             </li>
         </div>
