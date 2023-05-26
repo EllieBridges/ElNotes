@@ -3,7 +3,7 @@ export default function Note() {
         <div>
             <li>
                 <a>
-                    <h3>Note 1</h3>
+                    <h2 className='listNoteTitle grow'>Note 1</h2>
                 </a>
             </li>
         </div>

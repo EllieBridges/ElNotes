@@ -1,21 +1,15 @@
 
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
 
 
 export default function Navbar() {
     return (
-        <Box sx={{ flexGrow: 1 }} className='bg-light-blue'>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Home
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </Box>
+        <div className='navbar bg-light-purple w-100 pa3' position="static">
+            <a className='anchorButton bg-light-purple pa2' component="div" sx={{ flexGrow: 1 }}>
+                <img className='smallIcons' src='./home.svg'></img>
+                Home
+            </a>
+        </div>
     );
 }
