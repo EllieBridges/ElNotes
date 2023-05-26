@@ -3,12 +3,31 @@ import ReactDOM from 'react-dom/client';
 import 'tachyons';
 import reportWebVitals from './reportWebVitals';
 import HomePage from './components/HomePage';
+import NoteEditor from './components/NoteEditor';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+// import Root, { rootLoader } from "./routes/root";
+// import Team, { teamLoader } from "./routes/team";
+
+const router = createBrowserRouter([
+  {
+    path: 'noteeditor',
+    element: <NoteEditor />
+  },
+  {
+    path: '/',
+    element: <HomePage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HomePage />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
