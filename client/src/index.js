@@ -1,33 +1,37 @@
+import 'tachyons';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'tachyons';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './components/HomePage';
 import NoteEditor from './components/NoteEditor';
+import Layout from './components/Layout';
+import NoPage from './components/NoPage';
+import reportWebVitals from './reportWebVitals';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 
-// import Root, { rootLoader } from "./routes/root";
-// import Team, { teamLoader } from "./routes/team";
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="noteeditor" element={<NoteEditor />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-const router = createBrowserRouter([
-  {
-    path: 'noteeditor',
-    element: <NoteEditor />
-  },
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-]);
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
+
   </React.StrictMode>
 );
 

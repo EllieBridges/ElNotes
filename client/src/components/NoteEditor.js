@@ -1,7 +1,12 @@
+import NoteInput from "./NoteInput";
+import Title from "./Title";
+
 export default function NoteEditor() {
     return (
-        <div>
-            <h1>Note Editor</h1>
-        </div>
+        <div className='mainContainer'>
+            <Title
+                text='Note Editor' />
+            <NoteInput />
+        </div >
     )
 }
