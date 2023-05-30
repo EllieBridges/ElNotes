@@ -1,5 +1,5 @@
 const notes = [{
-    id: 1,
+    id: 23,
     title: 'My dream',
     content: 'I had a very weird dream last night.'
 }]
