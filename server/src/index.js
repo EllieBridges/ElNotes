@@ -1,5 +1,8 @@
 //import for the unique id - key for the 'notes' map
 const { v4: uuidv4 } = require('uuid');
+
+const cors = require('cors');
+
 //import express web framework
 const express = require('express')
 const app = express()
@@ -10,10 +13,14 @@ notes.set("993865e8-1797-4491-82d5-ce9286e98b76", {
     title: 'My dream',
     content: 'I had a very weird dream last night.'
 })
+notes.set("993865e8-1797-4491-82d5-ce9286e98b77", {
+    title: 'Boop',
+    content: 'Salmon Arm'
+})
 
 //Always the same 'payload data type' - apply as a middleware - load BEFORE handlers
 app.use(express.json())
-
+app.use(cors());
 
 // create handlers for each part of the app - http request methods - for creating, reading, editing and deleting 'register routes'
 const noteById = (id) => {
@@ -29,7 +36,7 @@ app.post('/notes', (req, res) => {
 });
 
 app.get('/notes', (req, res) => {
-    res.send({ data: [...notes], message: 'Get - notes retrieved' })
+    res.send({ notes: [...notes.values()], message: 'Get - notes retrieved' })
 });
 
 app.get('/notes/:noteId', (req, res) => {

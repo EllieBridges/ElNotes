@@ -41,8 +41,10 @@ body {
 
 
 .container {
-    display: grid;
-    grid-template-rows: max-content;
+    display: inline-grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 4fr 1fr;
+    gap: 1.15em;
 
 }
 
@@ -62,16 +64,13 @@ body {
     padding: 0px 8px;
 }
 
-.createButton {
-    background-color: pink;
-    height: 50px;
-    width: 50px;
-    display: block;
-    border-radius: 50%;
-    border: 0;
-    margin-left: 550px;
-    margin-bottom: 200px;
+.iconButton {
+    justify-self: end;
+}
 
+.createButton {
+    grid-column: 2 / 3;
+    grid-row: 2;
 }
 
 .createIcon:hover {

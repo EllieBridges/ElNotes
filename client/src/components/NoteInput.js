@@ -1,4 +1,5 @@
-import Button from "./Button";
+import * as React from 'react';
+
 
 export default function NoteInput() {
     return (
@@ -7,10 +8,6 @@ export default function NoteInput() {
                 className='container bg-white w-40 vh-75 ma4 ba bw4 b--light-yellow shadow-5'
                 placeholder='Start typing your note here'>
             </textarea>
-            <Button
-                type='save'
-                pageLink='/'
-            />
 
         </div>
     )
