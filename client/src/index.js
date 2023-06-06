@@ -15,16 +15,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="noteeditor" element={<NoteEditor />} />
+          <Route path="/note/*" element={<NoteEditor />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
-
-
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

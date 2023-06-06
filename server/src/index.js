@@ -10,10 +10,12 @@ const app = express()
 //used as an alternative to a database. 
 const notes = new Map()
 notes.set("993865e8-1797-4491-82d5-ce9286e98b76", {
+    id: "993865e8-1797-4491-82d5-ce9286e98b76",
     title: 'My dream',
     content: 'I had a very weird dream last night.'
 })
 notes.set("993865e8-1797-4491-82d5-ce9286e98b77", {
+    id: "993865e8-1797-4491-82d5-ce9286e98b77",
     title: 'Boop',
     content: 'Salmon Arm'
 })
@@ -28,10 +30,11 @@ const noteById = (id) => {
     return note;
 }
 
-
 app.post('/notes', (req, res) => {
     const newNote = req.body;
-    notes.set(uuidv4(), newNote)
+    const id = uuidv4()
+    newNote.id = id
+    notes.set(id, newNote)
     res.send({ data: [...notes], message: 'Post - new note created' })
 });
 
@@ -46,7 +49,7 @@ app.get('/notes/:noteId', (req, res) => {
 
 app.put('/notes/:noteId', (req, res) => {
     const newNote = req.body;
-    notes.set(req.params.noteId, { title: newNote.title, content: newNote.content })
+    notes.set(req.params.noteId, { id: req.params.noteId, title: newNote.title, content: newNote.content })
     res.send({ data: [...notes], message: 'Put - Note editor' })
 });
 

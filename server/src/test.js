@@ -1,29 +1,16 @@
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        const condition = true;
-        if (condition) {
-            resolve('Success')
-        }
-        else {
-            reject('Rejected')
-        }
-    }, 2000)
-})
+const myArr = [1, 2, 3, 4, 5]
 
-// console.log(promise)
+console.log('myArr = ', myArr)
 
-// promise.then((message) => {
-//     console.log(promise)
-//     console.log(message)
-// }).catch((message) => {
-//     console.log(promise)
-//     console.log(message)
-// })
+const newArray = [...myArr, 6, 7, 8]
 
-Promise.all([
-    promise,
-    promise,
-    promise
-]).then((value) => {
-    console.log(value)
-})
+console.log('newArray = ', newArray)
+
+const myMap = new Map()
+myMap.set('1', { title: 'hi' })
+myMap.set('2', { title: 'hello' })
+
+console.log('myMap = ', myMap.values())
+
+const a = [...myMap.values()]
+console.log(a)
